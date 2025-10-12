@@ -18,13 +18,68 @@ jobs:
       - name: Clone Celeritas
         run: git clone --single-branch --branch stonecutter https://git.taumc.org/embeddedt/celeritas.git
 
-      - name: Build Celeritas
+      - name: Build 1.21.1
         continue-on-error: true
         run: |
           cd celeritas
           chmod +x ./gradlew
-          ./gradlew packageJar --parallel
-        
+          ./gradlew -Ptarget_versions=1.21.1 packageJar --parallel
+
+      - name: Build 1.21.9-pre1
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.21.9 packageJar --parallel
+          
+      - name: Build 1.20.1
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.20.1 packageJar --parallel
+
+      - name: Build 1.19.2
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.19.2 packageJar --parallel
+
+      - name: Build 1.18.2
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.18.2 packageJar --parallel
+
+      - name: Build 1.16.5
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.16.5 packageJar --parallel
+
+      - name: Build 1.12.2
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.12.2 packageJar --parallel
+
+      - name: Build 1.7.10
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
+
+      - name: Build 1.2.5
+        continue-on-error: true
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.2.5 packageJar --parallel
 
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4

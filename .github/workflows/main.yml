@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  Build-Celeritas:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Clone Celeritas
+        run: git clone --single-branch --branch stonecutter https://git.taumc.org/embeddedt/celeritas.git
+
+      - name: Build Celeritas
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew packageJar --parallel
+
+      - name: Upload to Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: celeritas-builds
+          path: "./build/libs/*-dev/*"
+    

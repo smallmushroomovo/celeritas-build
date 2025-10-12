@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.21.1-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-21-9:
     needs: Clone-Celeritas
@@ -71,7 +71,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.21.9-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-20-1:
     needs: Clone-Celeritas
@@ -99,7 +99,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.20.1-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-19-2:
     needs: Clone-Celeritas
@@ -127,7 +127,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.19.2-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-18-2:
     needs: Clone-Celeritas
@@ -155,7 +155,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.18.2-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-16-5:
     needs: Clone-Celeritas
@@ -183,7 +183,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.16.5-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-12-2:
     needs: Clone-Celeritas
@@ -211,7 +211,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.12.2-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-7-10:
     needs: Clone-Celeritas
@@ -239,7 +239,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.7.10-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
   Build-2-5:
     needs: Clone-Celeritas
@@ -267,7 +267,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.2.5-builds
-          path: "./build/libs/*-dev/*"
+          path: "./celeritas/build/libs/*-dev/*"
 
 
 

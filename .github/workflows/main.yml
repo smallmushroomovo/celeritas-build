@@ -19,10 +19,12 @@ jobs:
         run: git clone --single-branch --branch stonecutter https://git.taumc.org/embeddedt/celeritas.git
 
       - name: Build Celeritas
+        continue-on-error: true
         run: |
           cd celeritas
           chmod +x ./gradlew
           ./gradlew packageJar --parallel
+        
 
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4

@@ -56,8 +56,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.21.1
-          automatic_release_tag: "celeritas-build-1.21.1"
+          title: Celeritas Build 1.21.1 on tag
+          automatic_release_tag: "celeritas-build-1.21.1-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -131,8 +131,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.20.1
-          automatic_release_tag: "celeritas-build-1.20.1"
+          title: Celeritas Build 1.20.1 on tag
+          automatic_release_tag: "celeritas-build-1.20.1-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -171,8 +171,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.18.2
-          automatic_release_tag: "celeritas-build-1.18.2"
+          title: Celeritas Build 1.18.2 on tag
+          automatic_release_tag: "celeritas-build-1.18.2-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -211,8 +211,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.16.5
-          automatic_release_tag: "celeritas-build-1.16.5"
+          title: Celeritas Build 1.16.5 on tag
+          automatic_release_tag: "celeritas-build-1.16.5-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -248,8 +248,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.12.2
-          automatic_release_tag: "celeritas-build-1.12.2"
+          title: Celeritas Build 1.12.2 on tag
+          automatic_release_tag: "celeritas-build-1.12.2-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -288,8 +288,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.7.10
-          automatic_release_tag: "celeritas-build-1.7.10"
+          title: Celeritas Build 1.7.10 on tag
+          automatic_release_tag: "celeritas-build-1.7.10-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -325,8 +325,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.2.5
-          automatic_release_tag: "celeritas-build-1.2.5"
+          title: Celeritas Build 1.2.5 on tag
+          automatic_release_tag: "celeritas-build-1.2.5-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -362,8 +362,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build beta-1.7.3
-          automatic_release_tag: "celeritas-build-b1.7.3"
+          title: Celeritas Build beta-1.7.3 on tag
+          automatic_release_tag: "celeritas-build-b1.7.3-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
@@ -399,8 +399,8 @@ jobs:
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build beta-1.8.1
-          automatic_release_tag: "celeritas-build-b1.8.1"
+          title: Celeritas Build beta-1.8.1 on tag
+          automatic_release_tag: "celeritas-build-b1.8.1-on-tag"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true

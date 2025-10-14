@@ -53,6 +53,15 @@ jobs:
           name: celeritas-1.21.1-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.21.1
+          automatic_release_tag: "celeritas-build-1.21.1"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
 #  Build-21-9:
 #    needs: Clone-Celeritas
 #    runs-on: ubuntu-24.04
@@ -67,6 +76,7 @@ jobs:
 #        uses: actions/setup-java@v3
 #        with:
 #          distribution: 'temurin'
+#
 #          java-version: 21
 #         
 #      - name: Build
@@ -80,6 +90,15 @@ jobs:
 #        with:
 #          name: celeritas-1.21.9-builds
 #          path: "./celeritas/build/libs/*-dev/*"
+#
+#      - name: Upload to Releases
+#        uses: marvinpinto/action-automatic-releases@latest
+#        with:
+#          title: Celeritas Build 1.21.9
+#          automatic_release_tag: "celeritas-build-1.21.9"
+#          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+#          files: "./celeritas/build/libs/*-dev/*"
+#          prerelease: true
 
   Build-20-1:
     needs: Clone-Celeritas
@@ -108,6 +127,15 @@ jobs:
         with:
           name: celeritas-1.20.1-builds
           path: "./celeritas/build/libs/*-dev/*"
+
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.20.1
+          automatic_release_tag: "celeritas-build-1.20.1"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
 
   Build-18-2:
     needs: Clone-Celeritas
@@ -140,6 +168,15 @@ jobs:
           name: celeritas-1.18.2-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.18.2
+          automatic_release_tag: "celeritas-build-1.18.2"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
   Build-16-5:
     needs: Clone-Celeritas
     runs-on: ubuntu-24.04
@@ -171,6 +208,15 @@ jobs:
           name: celeritas-1.16.5-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.16.5
+          automatic_release_tag: "celeritas-build-1.16.5"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
   Build-12-2:
     needs: Clone-Celeritas
     runs-on: ubuntu-24.04
@@ -199,6 +245,15 @@ jobs:
           name: celeritas-1.12.2-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.12.2
+          automatic_release_tag: "celeritas-build-1.12.2"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
   Build-7-10:
     needs: Clone-Celeritas
     runs-on: ubuntu-24.04
@@ -224,12 +279,20 @@ jobs:
       - name: Remove other versions
         run: rm ./celeritas/build/libs/*-dev/*2.5-*.jar
 
-
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.7.10-builds
           path: "./celeritas/build/libs/*-dev/*"
+
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.7.10
+          automatic_release_tag: "celeritas-build-1.7.10"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
 
   Build-2-5:
     needs: Clone-Celeritas
@@ -259,6 +322,14 @@ jobs:
           name: celeritas-1.2.5-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build 1.2.5
+          automatic_release_tag: "celeritas-build-1.2.5"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
 
   Build-b-7-3:
     needs: Clone-Celeritas
@@ -288,6 +359,15 @@ jobs:
           name: celeritas-b1.7.3-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build beta-1.7.3
+          automatic_release_tag: "celeritas-build-b1.7.3"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
   Build-b-8-1:
     needs: Clone-Celeritas
     runs-on: ubuntu-24.04
@@ -315,6 +395,16 @@ jobs:
         with:
           name: celeritas-b1.8.1-builds
           path: "./celeritas/build/libs/*-dev/*"
+
+      - name: Upload to Releases
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: Celeritas Build beta-1.8.1
+          automatic_release_tag: "celeritas-build-b1.8.1"
+          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
+          files: "./celeritas/build/libs/*-dev/*"
+          prerelease: true
+
 
 
 

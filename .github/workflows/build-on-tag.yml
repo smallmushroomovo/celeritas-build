@@ -47,6 +47,10 @@ jobs:
           chmod +x ./gradlew
           ./gradlew -Ptarget_versions=1.21.1 packageJar --parallel
 
+      - name: Remove other versions
+        continue-on-error: true
+        run: rm ./celeritas/build/libs/*-dev/*20.1-*.jar
+
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -160,6 +164,7 @@ jobs:
           ./gradlew -Ptarget_versions=1.18.2 packageJar --parallel
 
       - name: Remove other versions
+        continue-on-error: true
         run: rm ./celeritas/build/libs/*-dev/*20.1-*.jar
 
       - name: Upload to Artifact
@@ -200,6 +205,7 @@ jobs:
           ./gradlew -Ptarget_versions=1.16.5 packageJar --parallel
 
       - name: Remove other versions
+        continue-on-error: true
         run: rm ./celeritas/build/libs/*-dev/*20.1-*.jar
 
       - name: Upload to Artifact
@@ -277,6 +283,7 @@ jobs:
           ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
 
       - name: Remove other versions
+        continue-on-error: true
         run: rm ./celeritas/build/libs/*-dev/*2.5-*.jar
 
       - name: Upload to Artifact

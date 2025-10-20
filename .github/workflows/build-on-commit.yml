@@ -58,7 +58,7 @@ jobs:
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
 
-  Build-21-9:
+  Build-21-10:
     needs: Clone-Celeritas
     runs-on: ubuntu-24.04
     steps:
@@ -78,7 +78,7 @@ jobs:
         run: |
           cd celeritas
           chmod +x ./gradlew
-          ./gradlew -Ptarget_versions=1.21.9 packageJar --parallel
+          ./gradlew -Ptarget_versions=1.21.10 packageJar --parallel
 
       - name: Remove other versions
         continue-on-error: true
@@ -87,14 +87,14 @@ jobs:
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: celeritas-1.21.9-builds
+          name: celeritas-1.21.10-builds
           path: "./celeritas/build/libs/*-dev/*"
 
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.21.9
-          automatic_release_tag: "celeritas-build-1.21.9"
+          title: Celeritas Build 1.21.10
+          automatic_release_tag: "celeritas-build-1.21.10"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true

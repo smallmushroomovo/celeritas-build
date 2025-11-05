@@ -39,12 +39,8 @@ on:
         description: 'Build 1.2.5'
         type: boolean
         default: false
-      build_beta_1_7_3:
-        description: 'Build beta-1.7.3'
-        type: boolean
-        default: false
-      build_beta_1_8_1:
-        description: 'Build beta-1.8.1'
+      build_beta_versions:
+        description: 'Build Beta Versions'
         type: boolean
         default: false
 
@@ -448,7 +444,7 @@ jobs:
 
   Build-b-7-3:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_beta_1_7_3 == 'true'
+    if: github.event.inputs.build_beta_versions == 'true'
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -486,7 +482,7 @@ jobs:
 
   Build-b-8-1:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_beta_1_8_1 == 'true'
+    if: github.event.inputs.build_beta_versions == 'true'
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache

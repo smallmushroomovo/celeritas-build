@@ -280,17 +280,11 @@ jobs:
           distribution: 'temurin'
           java-version: 21
          
-      - name: Build Fabric Like
+      - name: Build
         run: |
           cd celeritas
           chmod +x ./gradlew
           ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
-
-      - name: Build Forge
-        run: |
-          cd celeritas
-          chmod +x ./gradlew
-          ./gradlew :forge1710:packageJar --parallel
 
       - name: Remove other versions
         continue-on-error: true

@@ -296,11 +296,44 @@ jobs:
           name: celeritas-1.7.10-builds
           path: "./celeritas/build/libs/*-dev/*"
 
+  Build-8-9:
+    needs: Clone-Celeritas
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Restore Celeritas Repository Cache
+        uses: actions/cache@v3
+        with:
+          path: ./celeritas
+          key: celeritas-repository-in-${{ env.TIME }}
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 21
+         
+      - name: Build
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew -Ptarget_versions=1.8.9 packageJar --parallel
+
+      - name: Remove other versions
+        continue-on-error: true
+        run: find ./celeritas/build/libs/*-dev/ -type f ! -name "*8.9*.jar" -delete
+
+      - name: Upload to Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: celeritas-1.8.9-builds
+          path: "./celeritas/build/libs/*-dev/*"
+
+
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
         with:
-          title: Celeritas Build 1.7.10
-          automatic_release_tag: "celeritas-build-1.7.10"
+          title: Celeritas Build 1.8.9
+          automatic_release_tag: "celeritas-build-1.8.9"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true

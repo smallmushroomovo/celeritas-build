@@ -330,25 +330,11 @@ jobs:
           chmod +x ./gradlew
           ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
 
-      - name: Remove other versions and move jar to root
-        continue-on-error: true
-        run: |
-          find ./celeritas/build/libs/*-dev/ -type f ! -name "*7.10*.jar" -delete
-          mv ./celeritas/build/libs/*-dev/* ./
-
-      - name: Build Forge
-        run: |
-          cd celeritas
-          chmod +x ./gradlew
-          ./gradlew :forge1710:build --parallel
-
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.7.10-builds
-          path: |
-            "./*.jar"
-            "./celeritas/forge1710/build/libs/*-dev.jar"
+          path: "./celeritas/build/libs/*-dev/*"
 
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
@@ -356,9 +342,7 @@ jobs:
           title: Celeritas Build 1.7.10
           automatic_release_tag: "celeritas-build-1.7.10"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
-          files: |
-            "./*.jar"
-            "./celeritas/forge1710/build/libs/*-dev.jar"
+          files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
 
   Build-8-9:

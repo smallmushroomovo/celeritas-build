@@ -51,10 +51,6 @@ jobs:
   Clone-Celeritas:
     runs-on: ubuntu-24.04
     steps:
-      - name: Set time environment
-        run: |
-          echo "TIME=$(date +%s)" >> $GITHUB_ENV
-
       - name: Clone Celeritas
         run: git clone --single-branch --branch stonecutter https://git.taumc.org/embeddedt/celeritas.git
 
@@ -62,7 +58,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
   Build-21-1:
     needs: Clone-Celeritas
     if: github.event.inputs.build_1_21_1 == 'true'
@@ -72,7 +68,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -114,7 +110,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -156,7 +152,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -194,7 +190,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -236,7 +232,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -278,7 +274,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -316,7 +312,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -358,7 +354,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -396,7 +392,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -439,7 +435,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -477,7 +473,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3
@@ -515,7 +511,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./celeritas
-          key: celeritas-repository-in-${{ env.TIME }}
+          key: celeritas-repository-in-${{ github.run_id }}
 
       - name: Setup JDK 21
         uses: actions/setup-java@v3

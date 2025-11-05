@@ -330,6 +330,10 @@ jobs:
           chmod +x ./gradlew
           ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
 
+      - name: Remove other versions
+        continue-on-error: true
+        run: find ./celeritas/build/libs/*-dev/ -type f ! -name "*7.10*.jar" -delete
+
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:

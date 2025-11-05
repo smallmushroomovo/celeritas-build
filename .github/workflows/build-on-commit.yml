@@ -275,23 +275,30 @@ jobs:
           distribution: 'temurin'
           java-version: 21
          
-      - name: Build
+      - name: Build Fabric
         run: |
           cd celeritas
           chmod +x ./gradlew
           ./gradlew -Ptarget_versions=1.7.10 packageJar --parallel
-          ./gradlew :forge1710:build --parallel
 
-      - name: Remove other versions
+      - name: Remove other versions and move jar to root
         continue-on-error: true
-        run: find ./celeritas/build/libs/*-dev/ -type f ! -name "*7.10*.jar" -delete
+        run: |
+          find ./celeritas/build/libs/*-dev/ -type f ! -name "*7.10*.jar" -delete
+          mv ./celeritas/build/libs/*-dev/* ./
+
+      - name: Build Forge
+        run: |
+          cd celeritas
+          chmod +x ./gradlew
+          ./gradlew :forge1710:build --parallel
 
       - name: Upload to Artifact
         uses: actions/upload-artifact@v4
         with:
           name: celeritas-1.7.10-builds
           path: |
-            "./celeritas/build/libs/*-dev/*"
+            "./*.jar"
             "./celeritas/forge1710/build/libs/*-dev.jar"
 
       - name: Upload to Releases
@@ -301,7 +308,7 @@ jobs:
           automatic_release_tag: "celeritas-build-1.7.10"
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: |
-            "./celeritas/build/libs/*-dev/*"
+            "./*.jar"
             "./celeritas/forge1710/build/libs/*-dev.jar"
           prerelease: true
 

@@ -292,7 +292,7 @@ jobs:
           name: celeritas-1.7.10-builds
           path: |
             "./celeritas/build/libs/*-dev/*"
-            "./celeritas/forge1710/build/libs/*-dev/*-dev.jar"
+            "./celeritas/forge1710/build/libs/*-dev.jar"
 
       - name: Upload to Releases
         uses: marvinpinto/action-automatic-releases@latest
@@ -302,7 +302,7 @@ jobs:
           repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
           files: |
             "./celeritas/build/libs/*-dev/*"
-            "./celeritas/forge1710/build/libs/*-dev/*-dev.jar"
+            "./celeritas/forge1710/build/libs/*-dev.jar"
           prerelease: true
 
   Build-8-9:

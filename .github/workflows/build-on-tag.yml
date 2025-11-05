@@ -67,7 +67,7 @@ jobs:
           key: celeritas-repository-ontag-in-${{ github.run_id }}
   Build-21-1:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_21_1 == 'true'
+    if: ${{ github.event.inputs.build_1_21_1 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -151,7 +151,7 @@ jobs:
 
   Build-20-1:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_20_1 == 'true'
+    if: ${{ github.event.inputs.build_1_20_1 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -189,7 +189,7 @@ jobs:
 
   Build-18-2:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_18_2 == 'true'
+    if: ${{ github.event.inputs.build_1_18_2 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -231,7 +231,7 @@ jobs:
 
   Build-16-5:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_16_5 == 'true'
+    if: ${{ github.event.inputs.build_1_16_5 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -273,7 +273,7 @@ jobs:
 
   Build-12-2:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_12_2 == 'true'
+    if: ${{ github.event.inputs.build_1_12_2 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -311,7 +311,7 @@ jobs:
 
   Build-7-10-fabric:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_7_10 == 'true'
+    if: ${{ github.event.inputs.build_1_7_10 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -434,7 +434,7 @@ jobs:
 
   Build-2-5:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_1_2_5 == 'true'
+    if: ${{ github.event.inputs.build_1_2_5 == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -472,7 +472,7 @@ jobs:
 
   Build-b-7-3:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_beta_versions == 'true'
+    if: ${{ github.event.inputs.build_beta_versions == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache
@@ -510,7 +510,7 @@ jobs:
 
   Build-b-8-1:
     needs: Clone-Celeritas
-    if: github.event.inputs.build_beta_versions == 'true'
+    if: ${{ github.event.inputs.build_beta_versions == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-24.04
     steps:
       - name: Restore Celeritas Repository Cache

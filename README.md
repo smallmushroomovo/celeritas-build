@@ -1,7 +1,9 @@
 # About this repoitory
 
 This is my automated build repository for personal use, with the build source from the [official repository](https://git.taumc.org/embeddedt/celeritas).
+
 [Download](https://github.com/smallmushroomovo/celeritas-build/releases/tag/celeritas-download)
+
 Below is the original README.
 
 <img src="https://git.taumc.org/embeddedt/celeritas/raw/branch/stonecutter/modern/src/main/resources/icon.png" width="128">

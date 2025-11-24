@@ -4,6 +4,8 @@ This is my automated build repository for personal use, with the build source fr
 
 [Download](https://github.com/smallmushroomovo/celeritas-build/releases/tag/celeritas-download)
 
+You can [fork this repository](https://github.com/smallmushroomovo/celeritas-build/fork) to build it by yourself in GitHub Actions.
+
 Below is the original README.
 
 <img src="https://git.taumc.org/embeddedt/celeritas/raw/branch/stonecutter/modern/src/main/resources/icon.png" width="128">

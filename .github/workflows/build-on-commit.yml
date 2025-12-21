@@ -299,44 +299,6 @@ jobs:
           files: "./celeritas/build/libs/*-dev/*"
           prerelease: true
 
-  Build-7-10-forge:
-    needs: Clone-Celeritas
-    if: ${{ github.event.inputs.build_1_7_10 == 'true' || github.event_name == 'schedule' }}
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Restore Celeritas Repository Cache
-        uses: actions/cache@v3
-        with:
-          path: ./celeritas
-          key: celeritas-repository-in-${{ github.run_id }}
-
-      - name: Setup JDK 21
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: 21
-         
-      - name: Build
-        run: |
-          cd celeritas
-          chmod +x ./gradlew
-          ./gradlew :forge1710:build --parallel
-
-      - name: Upload to Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: celeritas-1.7.10-forge-builds
-          path: "./celeritas/forge1710/build/libs/*-dev.jar"
-
-      - name: Upload to Releases
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          title: Celeritas Build 1.7.10 Forge
-          automatic_release_tag: "celeritas-build-1.7.10-forge"
-          repo_token: "${{ secrets.UPLOAD_TO_RELEASE }}"
-          files: "./celeritas/forge1710/build/libs/*-dev.jar"
-          prerelease: true
-
   Build-8-9:
     needs: Clone-Celeritas
     if: ${{ github.event.inputs.build_1_8_9 == 'true' || github.event_name == 'schedule' }}
